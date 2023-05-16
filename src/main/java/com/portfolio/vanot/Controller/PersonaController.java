@@ -69,14 +69,14 @@ public class PersonaController {
         }
 
         if (personaService.existsByNombre(dtopersona.getNombre())) {
-            return new ResponseEntity(new Mensaje("Esa experiencia existe"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("Esa persona existe"), HttpStatus.BAD_REQUEST);
         }
 
         Persona persona = new Persona(dtopersona.getNombre(),dtopersona.getApellido(), dtopersona.getDescripcion(),dtopersona.getImg());
 
         personaService.save(persona);
 
-        return new ResponseEntity(new Mensaje("Educacion agregada"), HttpStatus.OK);
+        return new ResponseEntity(new Mensaje("Persona agregada"), HttpStatus.OK);
     }
 
     @PutMapping("/update/{id}")
